@@ -485,11 +485,6 @@ static void msm_cpp_dequeue_buffer_info(struct cpp_device *cpp_dev,
 {
 	int ret = -1;
 
-	trace_printk("fd %d index %d native_buf %d ssid %d %d\n",
-		buff->map_info.buf_fd, buff->map_info.buff_info.index,
-		buff->map_info.buff_info.native_buff, buff_queue->session_id,
-		buff_queue->stream_id);
-
 	if (buff_queue->security_mode == SECURE_MODE)
 		ret = cam_smmu_put_stage2_phy_addr(cpp_dev->iommu_hdl,
 			buff->map_info.buf_fd);
